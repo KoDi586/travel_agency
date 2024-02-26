@@ -20,7 +20,7 @@ public class Employee {
     private Double salary;
 
     @Column(name = "hire_date", columnDefinition = "DATE")
-    private LocalDate localDate;
+    private LocalDate hireDate;
 
 
 }
