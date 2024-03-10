@@ -1,0 +1,9 @@
+Hibernate: create table clients (id bigserial not null, card_number varchar(255), contact_info varchar(255), full_name varchar(255), preferences varchar(255), primary key (id))
+Hibernate: create table employees (id bigserial not null, contact_info varchar(255), full_name varchar(255), hire_date DATE, position varchar(255), salary float(53), primary key (id))
+Hibernate: create table payments (code varchar(255) not null, amount float(53), client_id bigint, payment_date_time TIMESTAMP, payment_type varchar(255), status boolean, primary key (code))
+Hibernate: create table providers (id bigserial not null, company_name varchar(255), contact_info varchar(255), full_name varchar(255), primary key (id))
+Hibernate: create table reservations (id bigserial not null, reservation_date_time TIMESTAMP, status boolean, tour_id bigint, client_id bigint, primary key (id))
+Hibernate: create table reviews (id bigserial not null, client_id bigint, rating float4 not null, review_text varchar(255), tour_id bigint, primary key (id))
+Hibernate: create table tours (code varchar(255) not null, description varchar(255), services varchar(255), title varchar(255), provider_id bigint, primary key (code))
+Hibernate: alter table if exists reservations add constraint FK6lekctbt4u88agg0b7cjsj6lf foreign key (client_id) references clients
+Hibernate: alter table if exists tours add constraint FKmdupks712xwmvk32oio3xl3n foreign key (provider_id) references providers

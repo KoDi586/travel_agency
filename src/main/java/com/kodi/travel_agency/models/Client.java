@@ -2,6 +2,9 @@ package com.kodi.travel_agency.models;
 
 import jakarta.persistence.*;
 
+import java.util.Objects;
+import java.util.Set;
+
 @Entity
 @Table(name = "clients")
 public class Client {
@@ -18,6 +21,77 @@ public class Client {
     @Column(name = "card_number")
     private String cardNumber;
 
+    /**
+     * will be made search by string word of this field
+     */
     private String preferences;
 
+    @OneToMany(mappedBy = "client")
+    private Set<Reservation> reservations;
+
+
+    public Client() {
+    }
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
+    }
+
+    public String getContactInfo() {
+        return contactInfo;
+    }
+
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public void setCardNumber(String cardNumber) {
+        this.cardNumber = cardNumber;
+    }
+
+    public String getPreferences() {
+        return preferences;
+    }
+
+    public void setPreferences(String preferences) {
+        this.preferences = preferences;
+    }
+
+    public Set<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(Set<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(id, client.id) && Objects.equals(fullName, client.fullName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fullName);
+    }
 }
