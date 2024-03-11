@@ -28,4 +28,9 @@ public class TourController {
     public ResponseEntity<?> getAllTours() {
         return ResponseEntity.ok(service.getAllTours());
     }
+
+    @GetMapping(value = "find_by_id/{id}")
+    public ResponseEntity<?> findById(@PathVariable Long id) {
+        return ResponseEntity.ok(service.findById(id));
+    }
 }

@@ -32,4 +32,8 @@ public class TourService<T> {
     public List<T> getAllTours() {
         return providerRepository.findAllWithoutDescription();
     }
+
+    public Tour findById(Long id) {
+        return tourRepository.findFirstByCode(id);
+    }
 }

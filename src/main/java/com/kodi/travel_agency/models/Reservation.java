@@ -24,6 +24,10 @@ public class Reservation {
     @JoinColumn(name = "client_id")
     private Client client;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "payment_id", referencedColumnName = "id")
+    private Payment payment;
+
     public Reservation() {
 
     }

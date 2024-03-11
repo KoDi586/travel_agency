@@ -17,6 +17,9 @@ public class Payment {
     @Column(name = "client_id")
     private Long clientId;
 
+    @OneToOne(mappedBy = "payment")
+    private Reservation reservation;
+
     @Column(name = "payment_date_time", columnDefinition = "TIMESTAMP")
     private LocalDateTime paymentDateTime;
 
