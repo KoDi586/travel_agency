@@ -12,7 +12,7 @@ public class Tour {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String code;
+    private Long code;
 
     private String title;
 
@@ -31,11 +31,19 @@ public class Tour {
     public Tour() {
     }
 
-    public String getCode() {
+    public Tour(Long code, String title, String description, String services, Provider provider) {
+        this.code = code;
+        this.title = title;
+        this.description = description;
+        this.services = services;
+        this.provider = provider;
+    }
+
+    public Long getCode() {
         return code;
     }
 
-    public void setCode(String code) {
+    public void setCode(Long code) {
         this.code = code;
     }
 

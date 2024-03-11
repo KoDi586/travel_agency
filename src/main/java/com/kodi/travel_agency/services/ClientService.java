@@ -22,8 +22,8 @@ public class ClientService<T> {
         return clientRepository.save(client).toString();
     }
 
-    public String post(Long id, String fullName, String contactInfo, String card, String preferences) {
-        Client client = new Client(id, fullName, contactInfo, card, preferences);
+    public String post(String fullName, String contactInfo, String card, String preferences) {
+        Client client = new Client(0L, fullName, contactInfo, card, preferences);
         return "create: " + clientRepository.save(client).toString();
     }
 

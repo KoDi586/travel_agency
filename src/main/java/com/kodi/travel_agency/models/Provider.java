@@ -1,5 +1,6 @@
 package com.kodi.travel_agency.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -23,6 +24,7 @@ public class Provider {
     private String companyName;
 
     @OneToMany(mappedBy = "provider")
+    @JsonIgnore
     private Set<Tour> tours;
 
     public Provider() {
