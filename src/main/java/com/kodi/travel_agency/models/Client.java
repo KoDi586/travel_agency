@@ -1,5 +1,6 @@
 package com.kodi.travel_agency.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Objects;
@@ -27,6 +28,7 @@ public class Client {
     private String preferences;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private Set<Reservation> reservations;
 
 
