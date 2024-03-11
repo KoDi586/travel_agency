@@ -22,7 +22,7 @@ public class TourService<T> {
     }
 
 
-    public Object create(String title, String description, String services, Long providerId) {
+    public Tour create(String title, String description, String services, Long providerId) {
         Provider provider = providerRepository.findFirstById(providerId);
         Tour tour = new Tour(0L, title, description, services, provider);
         return tourRepository.save(tour);
