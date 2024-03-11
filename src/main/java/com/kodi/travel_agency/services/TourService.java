@@ -7,8 +7,10 @@ import com.kodi.travel_agency.repositories.TourRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class TourService {
+public class TourService<T> {
     private final TourRepository tourRepository;
     private final ProviderRepository providerRepository;
 
@@ -27,4 +29,7 @@ public class TourService {
     }
 
 
+    public List<T> getAllTours() {
+        return providerRepository.findAllWithoutDescription();
+    }
 }

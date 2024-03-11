@@ -4,10 +4,7 @@ import com.kodi.travel_agency.models.Tour;
 import com.kodi.travel_agency.services.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class TourController {
@@ -25,5 +22,10 @@ public class TourController {
                                         @RequestParam String services,
                                         @RequestParam Long provider_id) {
         return ResponseEntity.ok(service.create(title, description, services, provider_id));
+    }
+
+    @GetMapping(value = "get_all")
+    public ResponseEntity<?> getAllTours() {
+        return ResponseEntity.ok(service.getAllTours());
     }
 }
