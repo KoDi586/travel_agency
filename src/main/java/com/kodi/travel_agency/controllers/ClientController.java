@@ -18,11 +18,16 @@ public class ClientController {
     }
 
     @PostMapping("registration_new_client")
-    public String postClient(@RequestParam Long id, @RequestParam  String fullName,
-                             @RequestParam(required = false)  String contactInfo,
-                             @RequestParam(required = false)  String card,
+    public String postClient(@RequestParam Long id, @RequestParam String fullName,
+                             @RequestParam(required = false) String contactInfo,
+                             @RequestParam(required = false) String card,
                              @RequestParam(required = false) String preferences) {
 
         return service.post(id, fullName, contactInfo, card, preferences);
+    }
+
+    @GetMapping("get_all")
+    public ResponseEntity<?> getAll() {
+        return ResponseEntity.ok(service.getAll());
     }
 }
