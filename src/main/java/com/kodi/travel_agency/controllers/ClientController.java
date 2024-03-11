@@ -4,10 +4,7 @@ import com.kodi.travel_agency.models.Client;
 import com.kodi.travel_agency.services.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("client")
@@ -20,13 +17,12 @@ public class ClientController {
         this.service = service;
     }
 
-    @GetMapping("registration_new_client")
-    public ResponseEntity<?> createClient(@RequestParam Client client) {
-        return ResponseEntity.ok(service.createClient(client));
-    }
+    @PostMapping("registration_new_client")
+    public String postClient(@RequestParam Long id, @RequestParam  String fullName,
+                             @RequestParam(required = false)  String contactInfo,
+                             @RequestParam(required = false)  String card,
+                             @RequestParam(required = false) String preferences) {
 
-    @GetMapping("check/work/controller/by/client")
-    public ResponseEntity<?> check() {
-        return ResponseEntity.ok("normal");
+        return service.post(id, fullName, contactInfo, card, preferences);
     }
 }

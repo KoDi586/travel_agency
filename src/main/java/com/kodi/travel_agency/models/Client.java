@@ -35,6 +35,19 @@ public class Client {
     public Client() {
     }
 
+    public Client(Long id, String fullName, String contactInfo, String cardNumber, String preferences) {
+        this.id = id;
+        this.fullName = fullName;
+        this.contactInfo = contactInfo;
+        this.cardNumber = cardNumber;
+        this.preferences = preferences;
+    }
+
+    public Client(Long id, String fullName, String c) {
+        this.id = id;
+        this.fullName = fullName;
+    }
+
 
     public Long getId() {
         return id;
@@ -95,5 +108,16 @@ public class Client {
     @Override
     public int hashCode() {
         return Objects.hash(id, fullName);
+    }
+
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id=" + id +
+                ", fullName='" + fullName + '\'' +
+                ", contactInfo='" + contactInfo + '\'' +
+                ", cardNumber='" + cardNumber + '\'' +
+                ", preferences='" + preferences + '\'' +
+                '}';
     }
 }
