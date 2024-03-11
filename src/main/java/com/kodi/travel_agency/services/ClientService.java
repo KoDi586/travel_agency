@@ -9,8 +9,8 @@ import java.util.Collection;
 import java.util.List;
 
 @Service
-public class ClientService {
-    private ClientRepository clientRepository;
+public class ClientService<T> {
+    private final ClientRepository clientRepository;
 
     @Autowired
     public ClientService(ClientRepository clientRepository) {
@@ -28,7 +28,10 @@ public class ClientService {
     }
 
 
-    public Collection<Client> getAll() {
+    /*
+    return all clients with them id, full name, contact_info (without confidential data).
+     */
+    public List<T> getAll() {
         return clientRepository.findAllWithNameAndInfo();
     }
 }

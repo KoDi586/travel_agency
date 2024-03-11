@@ -7,9 +7,9 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface ClientRepository extends JpaRepository<Client, Long> {
+public interface ClientRepository<T> extends JpaRepository<Client, Long> {
 
-    @Query(value = "select c.id, c.full_name, c.contact_info" +
-            "from clients as c", nativeQuery = true)
-    List<Client> findAllWithNameAndInfo();
+    @Query(value = "select c.id, c.full_name, c.contact_info from clients c", nativeQuery = true)
+    List<T> findAllWithNameAndInfo();
+
 }

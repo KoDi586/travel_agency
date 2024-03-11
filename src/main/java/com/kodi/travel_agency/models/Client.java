@@ -3,6 +3,7 @@ package com.kodi.travel_agency.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,6 +36,10 @@ public class Client {
     public Client() {
     }
 
+
+    /*
+    constructor for registration
+     */
     public Client(Long id, String fullName, String contactInfo, String cardNumber, String preferences) {
         this.id = id;
         this.fullName = fullName;
@@ -43,10 +48,8 @@ public class Client {
         this.preferences = preferences;
     }
 
-    public Client(Long id, String fullName, String c) {
-        this.id = id;
-        this.fullName = fullName;
-    }
+
+
 
 
     public Long getId() {

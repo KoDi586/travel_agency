@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+
 @RestController
 @RequestMapping("client")
 public class ClientController {
@@ -27,7 +29,7 @@ public class ClientController {
     }
 
     @GetMapping("get_all")
-    public ResponseEntity<?> getAll() {
+    public ResponseEntity<Collection<?>> getAll() {
         return ResponseEntity.ok(service.getAll());
     }
 }
